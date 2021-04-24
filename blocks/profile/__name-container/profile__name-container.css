@@ -1,0 +1,11 @@
+.profile__name-container {
+  margin: 22px auto 14px;
+  padding: 0;
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .profile__name-container {
+    margin: 22px 0 16px;
+  }
+}
