@@ -18,6 +18,14 @@
 @import url('../blocks/profile/__add-button/profile__add-button.css');
 @import url('../blocks/profile/__edit-button/profile__edit-button.css');
 @import url('../blocks/profile/__name-container/profile__name-container.css');
-
-
 @import url('../blocks/profile/__add-button/profile__add-button".css');
+
+@import url('../blocks/elements/elements.css');
+@import url('../blocks/root/__elements/root__elements.css');
+
+@import url('../blocks/elements/__list/elements__list.css');
+@import url('../blocks/elements/__card/elements__card.css');
+@import url('../blocks/elements/__img/elements__img.css');
+@import url('../blocks/elements/__card-footer/elements__card-footer.css');
+@import url('../blocks/elements/__caption/elements__caption.css');
+@import url('../blocks/elements/__like-btn/elements__like-btn.css');
