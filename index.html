@@ -20,11 +20,11 @@
         <div>
           <div class="profile__name-container">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
-            <button class="profile__edit-button"></button>
+            <button class="profile__edit-button"  type="button"></button>
           </div>
           <p class="profile__description">Исследователь океана</p>
         </div>
-        <button class="profile__add-button"></button>
+        <button class="profile__add-button" type="button"></button>
       </section>
 
       <section class="elements root__elements">
@@ -33,42 +33,42 @@
             <img class="elements__img" src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Карачаево-Черкессия" />
             <div class="elements__card-footer">
               <h2 class="elements__caption">Карачаево-Черкессия</h2>
-              <button class="elements__like-btn"></button>
+              <button class="elements__like-btn" type="button"></button>
             </div>
           </li>
           <li class="elements__card">
             <img class="elements__img" src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Гора Эльбрус" />
             <div class="elements__card-footer">
               <h2 class="elements__caption">Гора Эльбрус</h2>
-              <button class="elements__like-btn"></button>
+              <button class="elements__like-btn" type="button"></button>
             </div>
           </li>
           <li class="elements__card">
             <img class="elements__img" src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Домбай" />
             <div class="elements__card-footer">
               <h2 class="elements__caption">Домбай</h2>
-              <button class="elements__like-btn"></button>
+              <button class="elements__like-btn" type="button"></button>
             </div>
           </li>
           <li class="elements__card">
             <img class="elements__img" src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Карачаево-Черкессия" />
             <div class="elements__card-footer">
               <h2 class="elements__caption">Карачаево-Черкессия</h2>
-              <button class="elements__like-btn"></button>
+              <button class="elements__like-btn" type="button"></button>
             </div>
           </li>
           <li class="elements__card">
             <img class="elements__img" src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Гора Эльбрус" />
             <div class="elements__card-footer">
               <h2 class="elements__caption">Гора Эльбрус</h2>
-              <button class="elements__like-btn"></button>
+              <button class="elements__like-btn" type="button"></button>
             </div>
           </li>
           <li class="elements__card">
             <img class="elements__img" src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Домбай" />
             <div class="elements__card-footer">
               <h2 class="elements__caption">Домбай</h2>
-              <button class="elements__like-btn"></button>
+              <button class="elements__like-btn" type="button"></button>
             </div>
           </li>
         </ul>
@@ -80,13 +80,15 @@
     </footer>
 
     <div class="popup popup_display_hidden">
-      <form class="popup__content">
+      <div class="popup__content">
         <button class="popup__close-btn" type="button"></button>
-        <h3 class="popup__header">Редактировать профиль</h3>
-        <input type="text" class="popup__input-name" placeholder="Имя" />
-        <input type="text" class="popup__input-job"  placeholder="О себе" />
-        <button class="popup__save-btn">Сохранить</button>
-      </form>
+        <form class="popup__content-form" name="popup__content-form">
+          <h3 class="popup__header">Редактировать профиль</h3>
+          <input type="text" class="popup__input-name" placeholder="Имя" name="input-name" />
+          <input type="text" class="popup__input-job"  placeholder="О себе" name="input-job" />
+          <button class="popup__save-btn"  type="submit">Сохранить</button>
+        </form>
+      </div>
     </div>
 
   </div>
