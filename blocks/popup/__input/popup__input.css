@@ -1,4 +1,4 @@
-.popup__input-job {
+.popup__input {
     width: 238px;
     height: 27px;
     border: none;
@@ -13,7 +13,7 @@
 
 
 @media (min-width: 1024px) {
-  .popup__input-job {
+  .popup__input {
     width: 358px;
     margin: 0 auto 48px;
   }

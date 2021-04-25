@@ -2,21 +2,17 @@
   border: 1px solid #FFFFFF;
   box-sizing: border-box;
   border-radius: 2px;
-
   width: 18px;
   height: 18px;
-
-  background-color: #000000;
+  background-color: transparent;
   background-image: url('../../../images/edit-button-img.svg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: 7.5px 7.5px;
   cursor: pointer;
-
   position: absolute;
   bottom: 6px;
   right: -28px;
-
   padding: 0;
   margin: 0;
 }
@@ -25,7 +21,6 @@
   opacity: .6;
 }
 
-
 @media (min-width: 1024px) {
   .profile__edit-button {
     width: 24px;
@@ -33,6 +28,5 @@
     background-size: 10px 10px;
     bottom: 10px;
     right: -42px;
-
   }
 }
