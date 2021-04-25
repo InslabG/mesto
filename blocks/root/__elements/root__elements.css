@@ -1,3 +1,9 @@
 .root__elements {
-  margin: 42px auto 0;
+  margin: 36px auto 0;
+}
+
+@media (min-width: 1024px) {
+  .root__elements {
+    margin: 47px auto 0;
+  }
 }

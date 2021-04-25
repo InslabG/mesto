@@ -1,0 +1,10 @@
+.root__footer {
+  margin: 48px 0 36px 19px;
+}
+
+@media (min-width: 1024px) {
+  .root__footer {
+    margin: 67px auto 60px;
+    width: 880px;
+  }
+}

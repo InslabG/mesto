@@ -1,0 +1,10 @@
+.root__header{
+
+}
+
+@media (min-width: 1024px) {
+  .root__header {
+    margin: 0 auto;
+    width: 880px;
+  }
+}
