@@ -10,8 +10,9 @@
   border: none;
   padding: 0;
   margin: 0 0 0 15px;
+  outline: none;
 }
 
 .elements__like-btn:hover {
-  opacity: .6;
+  opacity: .5;
 }

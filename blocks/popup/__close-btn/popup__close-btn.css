@@ -13,6 +13,7 @@
   border: none;
   padding: 0;
   margin: 0;
+  outline: none;
 }
 
 .popup__close-btn:hover {
