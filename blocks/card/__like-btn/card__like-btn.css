@@ -1,4 +1,4 @@
-.elements__like-btn {
+.card__like-btn {
   min-width: 22px;
   height: 19px;
   background-image: url('../../../images/inactive-like-img.svg');
@@ -13,6 +13,6 @@
   outline: none;
 }
 
-.elements__like-btn:hover {
+.card__like-btn:hover {
   opacity: .5;
 }

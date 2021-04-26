@@ -16,7 +16,6 @@
   }
 }
 
-
 @media (min-width: 1024px) {
   .elements__list {
     grid-template-columns: max-content max-content max-content;
