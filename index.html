@@ -31,7 +31,7 @@
         <footer class="footer root__footer">
             <p class="footer__copyright">© 2021 Mesto Russia</p>
         </footer>
-        <div class="popup popup_hidden">
+        <div id="profile-edit-popup" class="popup popup_hidden">
             <div class="popup__content">
                 <button class="popup__close-btn" type="button" aria-label="close"></button>
                 <form class="popup__content-form" name="popup__content-form">
@@ -40,6 +40,24 @@
                     <input type="text" class="popup__input popup__input_control_job" placeholder="О себе" name="input-job" required />
                     <button class="popup__save-btn" type="submit">Сохранить</button>
                 </form>
+            </div>
+        </div>
+        <div id="card-edit-popup" class="popup popup_hidden">
+            <div class="popup__content">
+                <button class="popup__close-btn" type="button" aria-label="close"></button>
+                <form class="popup__content-form" name="popup__content-form">
+                    <h3 class="popup__header">Новое место</h3>
+                    <input type="text" class="popup__input popup__input_control_name" placeholder="Название" name="input-name" required />
+                    <input type="text" class="popup__input popup__input_control_job" placeholder="Ссылка на картинку" name="input-job" required />
+                    <button class="popup__save-btn" type="submit">Сохранить</button>
+                </form>
+            </div>
+        </div>
+        <div id="image-popup" class="popup popup_hidden popup_dark">
+            <div class="popup__content-img">
+                <button class="popup__close-btn" type="button" aria-label="close"></button>
+                <img src="" alt="" class="popup__img">
+                <p class="popup__img-caption"></p>
             </div>
         </div>
     </div>
