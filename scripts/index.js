@@ -54,6 +54,7 @@ function openPopup(popup, firstValue='', secondValue='') {
 /// caption - подпись к картинке
 function openImgPopup(imgSrc, caption){
   imagePopup.querySelector('.popup__img').src = imgSrc;
+  imagePopup.querySelector('.popup__img').alt = caption;
   imagePopup.querySelector('.popup__img-caption').textContent = caption;
   imagePopup.classList.toggle("popup_hidden");
 }
