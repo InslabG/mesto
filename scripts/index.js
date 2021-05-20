@@ -46,7 +46,10 @@ function openPopup(popup) {
   document.addEventListener('keydown', closePopupByEscape(popup));      // Добавляю листенер нажатия Esc
 }
 
-
+/// Функция заполняет начальными значениями попапы и вызывает события input в них
+/// popup - ссылка на попап
+/// name - необязательное значение для верхнего input'a
+/// job - необязательное значение для нижнего input'a
 function initFormInputs(popup, name='', job=''){
   const input_name = popup.querySelector('.popup__input_control_name');
   const input_job = popup.querySelector('.popup__input_control_job');
@@ -171,6 +174,7 @@ initialCards.forEach(item => {
   cardsContainer.append(createCard({ cardImage: item.link, cardText: item.name}, getTemplate("#card-template")));
 });
 
+//Подключаем валидацию
 enableValidation({
   formClassName: '.popup__content-form',                       // Класс форм попапов
   inputClassName: '.popup__input',                             // Класс инпутов на формах попапов
