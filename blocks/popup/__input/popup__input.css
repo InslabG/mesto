@@ -3,7 +3,7 @@
     height: 27px;
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, .2);
-    margin: 0 auto 45px;
+    margin: 0 auto 5px;
     padding: 0;
     font-style: normal;
     font-weight: normal;
@@ -11,10 +11,17 @@
     line-height: 17px;
 }
 
+.popup__input:focus {
+  outline: none;
+}
+
+.popup__input:invalid {
+  border-bottom: 1px solid #FF0000;
+}
+
 
 @media (min-width: 1024px) {
   .popup__input {
     width: 358px;
-    margin: 0 auto 48px;
   }
 }
