@@ -12,16 +12,38 @@ const imagePopupCloseBtn = imagePopup.querySelector('.popup__close-btn');   // �
 
 
 
+
+/// Функция возвращает функцию обработчик нажатия на клавишу в документе
+/// Используется каррирование, т.к. в функции обработчике необходимо использовать popup
+/// popup - ссылка на попап
+function closePopupByEscape(popup) {
+  return (evt) => {
+    if(evt.key === 'Escape'){
+      closePopup(popup);
+    }
+  }
+}
+
+/// Функция закрытия попапа по нажатию на overlay
+function closePopupByOverlay(evt){
+  if(evt.target.classList.contains('popup'))
+    closePopup(evt.target);
+}
+
 /// Функция закрытия попапа
 /// popup - ссылка на попап
 function closePopup(popup) {
+  popup.removeEventListener('mousedown', closePopupByOverlay);          // Снимаю листенер нажатия на overlay
+  document.removeEventListener('keydown', closePopupByEscape(popup));   // Снимаю листенер нажатия Esc
   popup.classList.add("popup_hidden");
 }
 
 /// Функция открытия попапа 
 /// popup - ссылка на попап
-function openPopup(popup, firstValue='', secondValue='') {
+function openPopup(popup) {
   popup.classList.remove("popup_hidden");
+  popup.addEventListener('mousedown', closePopupByOverlay);             // Добавляю листенер нажатия на overlay
+  document.addEventListener('keydown', closePopupByEscape(popup));      // Добавляю листенер нажатия Esc
 }
 
 
