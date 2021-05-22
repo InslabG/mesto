@@ -25,7 +25,7 @@ function closePopupByEscape(evt) {
 
 /// Функция закрытия попапа по нажатию на overlay
 function closePopupByOverlay(evt){
-  if(evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close-btn')){
+  if((evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close-btn')) && evt.button === 0){
     closePopup(getOpenedPopup());
   }
 }
