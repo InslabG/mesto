@@ -33,12 +33,14 @@
 @import url('../blocks/popup/__close-btn/popup__close-btn.css');
 @import url('../blocks/popup/__header/popup__header.css');
 @import url('../blocks/popup/__input/popup__input.css');
-@import url('../blocks/popup/__input/_control/popup__input_control_name.css');
-@import url('../blocks/popup/__input/_control/popup__input_control_job.css');
+@import url('../blocks/popup/__input/_control/popup__input_control_profile-name.css');
+@import url('../blocks/popup/__input/_control/popup__input_control_profile-job.css');
+@import url('../blocks/popup/__input/_control/popup__input_control_card-name.css');
+@import url('../blocks/popup/__input/_control/popup__input_control_card-url.css');
 @import url('../blocks/popup/__input-error/popup__input-error.css');
 @import url('../blocks/popup/__save-btn/popup__save-btn.css');
 @import url('../blocks/popup/__save-btn/_inactive/popup__save-btn_inactive.css');
-@import url('../blocks/popup/_hidden/popup_hidden.css');
+@import url('../blocks/popup/_opened/popup_opened.css');
 @import url('../blocks/popup/_dark/popup_dark.css');
 @import url('../blocks/popup/__img/popup__img.css');
 @import url('../blocks/popup/__content-img/popup__content-img.css');

@@ -31,33 +31,33 @@
         <footer class="footer root__footer">
             <p class="footer__copyright">© 2021 Mesto Russia</p>
         </footer>
-        <div id="profile-edit-popup" class="popup popup_hidden" novalidate>
+        <div id="profile-edit-popup" class="popup" novalidate>
             <div class="popup__content">
                 <button class="popup__close-btn" type="button" aria-label="close"></button>
                 <form class="popup__content-form" name="popup__content-form">
                     <h3 class="popup__header">Редактировать профиль</h3>
-                    <input type="text" class="popup__input popup__input_control_name" placeholder="Имя" name="input-name" minlength="2" maxlength="40" required />
-                    <span class="popup__input-error input-name-error"></span>
-                    <input type="text" class="popup__input popup__input_control_job" placeholder="О себе" name="input-job" minlength="2" maxlength="200" required />
-                    <span class="popup__input-error input-job-error"></span>
+                    <input type="text" class="popup__input popup__input_control_profile-name" placeholder="Имя" name="profile-name" minlength="2" maxlength="40" required />
+                    <span class="popup__input-error profile-name-error"></span>
+                    <input type="text" class="popup__input popup__input_control_profile-job" placeholder="О себе" name="profile-job" minlength="2" maxlength="200" required />
+                    <span class="popup__input-error profile-job-error"></span>
                     <button class="popup__save-btn" type="submit">Сохранить</button>
                 </form>
             </div>
         </div>
-        <div id="card-edit-popup" class="popup popup_hidden">
+        <div id="card-edit-popup" class="popup">
             <div class="popup__content">
                 <button class="popup__close-btn" type="button" aria-label="close"></button>
                 <form class="popup__content-form" name="popup__content-form">
                     <h3 class="popup__header">Новое место</h3>
-                    <input type="text" class="popup__input popup__input_control_name" placeholder="Название" name="input-name" minlength="2" maxlength="30" required />
-                    <span class="popup__input-error input-name-error"></span>
-                    <input type="url" class="popup__input popup__input_control_job" placeholder="Ссылка на картинку" name="input-job" required />
-                    <span class="popup__input-error input-job-error"></span>
+                    <input type="text" class="popup__input popup__input_control_card-name" placeholder="Название" name="card-name" minlength="2" maxlength="30" required />
+                    <span class="popup__input-error card-name-error"></span>
+                    <input type="url" class="popup__input popup__input_control_card-url" placeholder="Ссылка на картинку" name="card-url" required />
+                    <span class="popup__input-error card-url-error"></span>
                     <button class="popup__save-btn" type="submit">Сохранить</button>
                 </form>
             </div>
         </div>
-        <div id="image-popup" class="popup popup_hidden popup_dark">
+        <div id="image-popup" class="popup popup_dark">
             <div class="popup__content-img">
                 <button class="popup__close-btn" type="button" aria-label="close"></button>
                 <img class="popup__img" alt="image" src="#">
