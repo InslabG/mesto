@@ -3,8 +3,10 @@
     background: #E5E5E5;
     color: #000000;
     opacity: 0.2;
+    cursor: default;
 }
 
+/* Дублируется opacity: 0.2, т.к. если убрать, то он перекрывается значением 0.8 из popup__save-btn:hover */
 .popup__save-btn_inactive:hover {
     opacity: 0.2;
 }

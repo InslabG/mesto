@@ -9,10 +9,10 @@ const profileEditBtn = document.querySelector(".profile__edit-button");     // �
 
 const imagePopup = document.querySelector("#image-popup");                  // Попап полной картинки
 
-
+const MOUSE_LEFT_BTN_CODE = 0;                                              // Код-признак нажатия левой кнопки мыши
 
 /// Функция возвращает открытый попап
-function getOpenedPopup(){
+function getOpenedPopup() {
   return document.querySelector('.popup_opened');
 }
 
@@ -24,8 +24,8 @@ function closePopupByEscape(evt) {
 }
 
 /// Функция закрытия попапа по нажатию на overlay
-function closePopupByOverlay(evt){
-  if((evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close-btn')) && evt.button === 0){
+function closePopupByOverlay(evt) {
+  if((evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close-btn')) && evt.button === MOUSE_LEFT_BTN_CODE){
     closePopup(getOpenedPopup());
   }
 }
@@ -56,7 +56,7 @@ function setInputValuesWithValidate(...data) {
 /// Функция открытия попапа редактирования профиля
 /// name - необязательное значение для input'a имени профиля
 /// job - необязательное значение для input'a с описанием/профессией профиля
-function openProfilePopup(name='', job=''){
+function openProfilePopup(name, job) {
   const input_name = profileEditPopup.querySelector('.popup__input_control_profile-name');
   const input_job = profileEditPopup.querySelector('.popup__input_control_profile-job');
   setInputValuesWithValidate(input_name, name, input_job, job);
@@ -64,7 +64,7 @@ function openProfilePopup(name='', job=''){
 }
 
 /// Функция открытия попапа добавления карточки
-function openCardEditPopup(){
+function openCardEditPopup() {
   const input_name = cardEditPopup.querySelector('.popup__input_control_card-name');
   const input_url = cardEditPopup.querySelector('.popup__input_control_card-url');
   setInputValuesWithValidate(input_name, '', input_url, '');
@@ -74,7 +74,7 @@ function openCardEditPopup(){
 /// Функция открытия попапа картинки
 /// imgSrc - ссылка на картинку
 /// caption - подпись к картинке
-function openImgPopup(imgSrc, caption){
+function openImgPopup(imgSrc, caption) {
   const imgElement = imagePopup.querySelector('.popup__img');
   imgElement.src = imgSrc;
   imgElement.alt = caption;
@@ -84,7 +84,7 @@ function openImgPopup(imgSrc, caption){
 
 /// Функция возвращает шаблон
 /// idTemplate - id шаблона
-function getTemplate(idTemplate){
+function getTemplate(idTemplate) {
   return document.querySelector(idTemplate).content;        
 }
 
@@ -121,13 +121,13 @@ function createCard(cardData, cardTemplate) {
 /// Вешает обработчики на попап редактирования
 /// popup - инициализируемый попап
 /// submitHandler - хендлер submit'a формы попапа
-function initEditPopup(popup, submitHandler){
+function initEditPopup(popup, submitHandler) {
   //Вешаем submit на форму попапа
   popup.querySelector('.popup__content-form').addEventListener('submit', (evt) => { evt.preventDefault(); submitHandler(popup); closePopup(popup); });
 }
 
 /// Настраиваем обработчик submit profile-попапа
-initEditPopup(profileEditPopup, (popup)=>{
+initEditPopup(profileEditPopup, (popup) => {
   const nameInput  = popup.querySelector('.popup__input_control_profile-name');
   const jobInput = popup.querySelector('.popup__input_control_profile-job');
   profileName.textContent = nameInput.value;
