@@ -38,7 +38,7 @@ export default class FormValidator {
 
 
     /// Функция устанавливает состояние валидации формы при открытии
-    openFormValidationState() {
+    setOpenFormValidationState() {
         this._formInputs.forEach((input) => {
             this._setInputValidationState(input);
         });

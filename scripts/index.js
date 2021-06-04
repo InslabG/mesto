@@ -21,14 +21,15 @@ const profileEditBtn = document.querySelector(".profile__edit-button");     // �
 function openProfilePopup(name, job) {
   profileEditPopup.querySelector('.popup__input_control_profile-name').value = name;
   profileEditPopup.querySelector('.popup__input_control_profile-job').value = job;
-  profileEditPopup.querySelector(constants.validationConfig.formClassName).validator.openFormValidationState();
+  profileEditPopup.querySelector(constants.validationConfig.formClassName).validator.setOpenFormValidationState();
   utils.openPopup(profileEditPopup);
 }
 
 /// Функция открытия попапа добавления карточки
 function openCardEditPopup() {
-  cardEditPopup.querySelector('.popup__input_control_card-name').value = cardEditPopup.querySelector('.popup__input_control_card-url').value = '';
-  cardEditPopup.querySelector(constants.validationConfig.formClassName).validator.openFormValidationState();
+  const form = cardEditPopup.querySelector(constants.validationConfig.formClassName);
+  form.reset();
+  form.validator.setOpenFormValidationState();
   utils.openPopup(cardEditPopup);
 }
 
