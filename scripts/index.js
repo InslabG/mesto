@@ -74,7 +74,7 @@ constants.initialCards.forEach(item => {
 });
 
   ///Подключаем валидацию
-  /// Перебираем все формы и устанавливаем листенеры на все input'ы
+  /// Перебираем все формы и подключаем к форме валидатор
   const formList = Array.from(document.querySelectorAll(constants.validationConfig.formClassName));
   formList.forEach((form) => {
       const validator = new FormValidator(constants.validationConfig, form);
