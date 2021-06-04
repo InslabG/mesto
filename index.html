@@ -31,10 +31,10 @@
         <footer class="footer root__footer">
             <p class="footer__copyright">© 2021 Mesto Russia</p>
         </footer>
-        <div id="profile-edit-popup" class="popup" novalidate>
+        <div id="profile-edit-popup" class="popup">
             <div class="popup__content">
                 <button class="popup__close-btn" type="button" aria-label="close"></button>
-                <form class="popup__content-form" name="popup__content-form">
+                <form class="popup__content-form" name="popup__content-form" novalidate>
                     <h3 class="popup__header">Редактировать профиль</h3>
                     <input type="text" class="popup__input popup__input_control_profile-name" placeholder="Имя" name="profile-name" minlength="2" maxlength="40" required />
                     <span class="popup__input-error profile-name-error"></span>
@@ -47,7 +47,7 @@
         <div id="card-edit-popup" class="popup">
             <div class="popup__content">
                 <button class="popup__close-btn" type="button" aria-label="close"></button>
-                <form class="popup__content-form" name="popup__content-form">
+                <form novalidate class="popup__content-form" name="popup__content-form" >
                     <h3 class="popup__header">Новое место</h3>
                     <input type="text" class="popup__input popup__input_control_card-name" placeholder="Название" name="card-name" minlength="2" maxlength="30" required />
                     <span class="popup__input-error card-name-error"></span>
@@ -75,8 +75,6 @@
             <button class="card__del-btn" type="button" aria-label="delete"></button>
         </li>
     </template>
-    <script type="text/javascript" src="scripts/initial-сards.js"></script>
-    <script type="text/javascript" src="scripts/validate.js"></script>
-    <script type="text/javascript" src="scripts/index.js"></script>
+    <script type="module" src="scripts/index.js"></script>
 </body>
 </html>

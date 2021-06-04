@@ -1,4 +1,4 @@
-const initialCards = [
+const _initialCards = [
     {
       name: 'Архыз',
       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
@@ -25,3 +25,16 @@ const initialCards = [
     }
   ];
   
+
+
+const _validationConfig = {
+    formClassName: '.popup__content-form',                       // Класс форм попапов
+    inputClassName: '.popup__input',                             // Класс инпутов на формах попапов
+    submitButtonClassName: '.popup__save-btn',                   // Класс кнопки submit на формах попапов
+    submitButtonInactiveClassName: 'popup__save-btn_inactive'    // Класс неактивной кнопки submit на формах попапов
+ };
+
+ export default {
+    validationConfig: _validationConfig,
+    initialCards: _initialCards
+ };
