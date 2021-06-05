@@ -3,15 +3,28 @@ import FormValidator from './FormValidator.js';
 import constants from './utils/constants.js';
 import utils from './utils/utils.js';
 
-const cardsContainer = document.querySelector(".elements__list");           // Контейнер для карточек
-const cardEditPopup = document.querySelector("#card-edit-popup");           // Попап редактирования карточки
-const cardAddBtn = document.querySelector(".profile__add-button");          // Кнопка "Добавить карточку"
+const cardsContainer = document.querySelector(".elements__list");                       // Контейнер для карточек
+const cardEditPopup = document.querySelector("#card-edit-popup");                       // Попап редактирования карточки
+const cardEditPopupForm = cardEditPopup                                                 // Форма попапа редактирования карточки
+                          .querySelector(constants.validationConfig.formClassName);     
+const cardEditInputName = cardEditPopup                                                 // Элемент input name редактора карточки
+                          .querySelector('.popup__input_control_card-name');
+const cardEditInputUrl = cardEditPopup                                                  // Элемент input url редактора карточки
+                         .querySelector('.popup__input_control_card-url');      
 
-const profileEditPopup = document.querySelector("#profile-edit-popup");     // Попап редактирования профиля
-const imagePopup = document.querySelector("#image-popup");                  // Попап картинки карточки
-const profileName = document.querySelector(".profile__name");               // Элемент с именем профиля на странице
-const profileJob = document.querySelector(".profile__description");         // Элемент с описанием/профессией профиля на странице
-const profileEditBtn = document.querySelector(".profile__edit-button");     // Кнопка "Редактировать профиль"
+const cardAddBtn = document.querySelector(".profile__add-button");                      // Кнопка "Добавить карточку"
+
+const profileEditPopup = document.querySelector("#profile-edit-popup");                 // Попап редактирования профиля
+const profileEditPopupForm = profileEditPopup                                           // Форма попапа редактирования карточки
+                             .querySelector(constants.validationConfig.formClassName);  
+const imagePopup = document.querySelector("#image-popup");                              // Попап картинки карточки
+const profileName = document.querySelector(".profile__name");                           // Элемент с именем профиля на странице
+const profileJob = document.querySelector(".profile__description");                     // Элемент с описанием/профессией профиля на странице
+const profileEditInputName = profileEditPopup                                           // Элемент input name редактора профиля
+                             .querySelector('.popup__input_control_profile-name');
+const profileEditInputJob = profileEditPopup                                            // Элемент input job редактора профиля
+                            .querySelector('.popup__input_control_profile-job');      
+const profileEditBtn = document.querySelector(".profile__edit-button");                 // Кнопка "Редактировать профиль"
 
 
 
@@ -19,17 +32,16 @@ const profileEditBtn = document.querySelector(".profile__edit-button");     // �
 /// name - необязательное значение для input'a имени профиля
 /// job - необязательное значение для input'a с описанием/профессией профиля
 function openProfilePopup(name, job) {
-  profileEditPopup.querySelector('.popup__input_control_profile-name').value = name;
-  profileEditPopup.querySelector('.popup__input_control_profile-job').value = job;
-  profileEditPopup.querySelector(constants.validationConfig.formClassName).validator.setOpenFormValidationState();
+  profileEditInputName.value = name;
+  profileEditInputJob.value = job;
+  profileEditorValidator.setOpenFormValidationState();
   utils.openPopup(profileEditPopup);
 }
 
 /// Функция открытия попапа добавления карточки
 function openCardEditPopup() {
-  const form = cardEditPopup.querySelector(constants.validationConfig.formClassName);
-  form.reset();
-  form.validator.setOpenFormValidationState();
+  cardEditPopupForm.reset();
+  cardEditorValidator.setOpenFormValidationState();
   utils.openPopup(cardEditPopup);
 }
 
@@ -43,15 +55,13 @@ function initEditPopup(popup, submitHandler) {
 
 /// Настраиваем обработчик submit profile-попапа
 initEditPopup(profileEditPopup, (popup) => {
-  profileName.textContent  = popup.querySelector('.popup__input_control_profile-name').value;
-  profileJob.textContent = popup.querySelector('.popup__input_control_profile-job').value;
+  profileName.textContent  = profileEditInputName.value;
+  profileJob.textContent = profileEditInputJob.value;
 });
 
 /// Настраиваем обработчик submit card-editor попапа
 initEditPopup(cardEditPopup, (popup) => {
-  const cardNameInput  = popup.querySelector('.popup__input_control_card-name');
-  const cardUrlInput = popup.querySelector('.popup__input_control_card-url');
-  const card = new Card({cardImgSrc: cardUrlInput.value, cardText: cardNameInput.value}, '#card-template');
+  const card = new Card({cardImgSrc: cardEditInputUrl.value, cardText: cardEditInputName.value}, '#card-template');
   cardsContainer.prepend(card.generateCard());
 });
 
@@ -70,16 +80,13 @@ cardAddBtn.addEventListener('click', (evt) => {
 
 //Добавляем карточки из стартового массива
 constants.initialCards.forEach(item => {
-  let card = new Card({ cardImgSrc: item.link, cardText: item.name}, "#card-template");
+  const card = new Card({ cardImgSrc: item.link, cardText: item.name}, "#card-template");
   cardsContainer.append(card.generateCard());
 });
 
-  ///Подключаем валидацию
-  /// Перебираем все формы и подключаем к форме валидатор
-  const formList = Array.from(document.querySelectorAll(constants.validationConfig.formClassName));
-  formList.forEach((form) => {
-      const validator = new FormValidator(constants.validationConfig, form);
-      form.validator = validator;
-      validator.enableValidation();
-  });
 
+///Подключаем валидацию
+const cardEditorValidator = new FormValidator(constants.validationConfig, cardEditPopupForm);
+cardEditorValidator.enableValidation();
+const profileEditorValidator = new FormValidator(constants.validationConfig, profileEditPopupForm);
+profileEditorValidator.enableValidation();

@@ -15,11 +15,6 @@
   outline: none;
 }
 
-.popup__input:invalid {
-  border-bottom: 1px solid #FF0000;
-}
-
-
 @media (min-width: 1024px) {
   .popup__input {
     width: 358px;

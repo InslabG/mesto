@@ -15,12 +15,17 @@ export default class FormValidator {
 
     /// Функция отображает/скрывает ошибку валидации input'a на форме
     /// input - валидируемый input
-    _setInputValidationState(input) {
+    /// state - необязательный bool параметр: если он передан, то он определяет валидность input'а
+    _setInputValidationState(input, state) {
+        if(state === undefined) 
+            state = input.validity.valid;
         const errorSpan = this._form.querySelector(`.${input.name}-error`);
-        if(input.validity.valid){
+        if(state){
             errorSpan.textContent = '';
+            input.classList.remove('popup__input_invalid');
         } else {
             errorSpan.textContent = input.validationMessage;
+            input.classList.add('popup__input_invalid');
         }
     }
 
@@ -40,7 +45,7 @@ export default class FormValidator {
     /// Функция устанавливает состояние валидации формы при открытии
     setOpenFormValidationState() {
         this._formInputs.forEach((input) => {
-            this._setInputValidationState(input);
+            this._setInputValidationState(input, true);
         });
         this._setSubmitButtonValidationState();
     }
