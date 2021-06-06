@@ -22,10 +22,10 @@ export default class FormValidator {
         const errorSpan = this._form.querySelector(`.${input.name}-error`);
         if(state){
             errorSpan.textContent = '';
-            input.classList.remove('popup__input_invalid');
+            input.classList.remove(this._config.inputInvalidClassName);
         } else {
             errorSpan.textContent = input.validationMessage;
-            input.classList.add('popup__input_invalid');
+            input.classList.add(this._config.inputInvalidClassName);
         }
     }
 
