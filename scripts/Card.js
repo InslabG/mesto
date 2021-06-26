@@ -1,7 +1,5 @@
-import utils from './utils/utils.js';
-
 export default class Card {
-    constructor(cardData, templateSelector) {
+    constructor(cardData, templateSelector, handleCardClick) {
         this._cardText = cardData.cardText;
         this._cardImgSrc = cardData.cardImgSrc;
         this._cardTemplateSelector = templateSelector;
@@ -10,6 +8,7 @@ export default class Card {
         this._cardCaptionElement = this._cardElement.querySelector('.card__caption');
         this._cardDelButton = this._cardElement.querySelector('.card__del-btn');
         this._cardLikeButton = this._cardElement.querySelector('.card__like-btn');
+        this._handleCardClick = handleCardClick;
     }
 
     /// Функция возвращает шаблон карточки
@@ -43,11 +42,7 @@ export default class Card {
     /// imgSrc - ссылка на картинку
     /// caption - подпись к картинке
     _openImgPopup() {
-        const imagePopup = document.querySelector("#image-popup");
-        const imgElement = imagePopup.querySelector('.popup__img');
-        imgElement.src = this._cardImgSrc;
-        imagePopup.querySelector('.popup__img-caption').textContent = imgElement.alt = this._cardText;
-        utils.openPopup(imagePopup);
+        this._handleCardClick(this._cardImgSrc, this._cardText);
     }
 
     /// Фкнкция возвращает элемент карточки

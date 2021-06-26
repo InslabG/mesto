@@ -37,5 +37,6 @@ const _validationConfig = {
 
  export default {
     validationConfig: _validationConfig,
-    initialCards: _initialCards
+    initialCards: _initialCards,
+    MOUSE_LEFT_BTN_CODE: 0
  };
