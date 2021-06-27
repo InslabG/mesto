@@ -1,10 +1,12 @@
-import constants from './utils/constants.js';
+import constants from '../utils/constants.js';
 
 export default class Popup {
 
     constructor(popupSelector) {
         this._popupSelector = popupSelector;
         this._popup = document.querySelector(this._popupSelector);
+        this._bindedHandleEscClose = this._handleEscClose.bind(this);
+        this._bindedHandleOverlayClose = this._handleOverlayClose.bind(this);
     }
 
     _handleEscClose(evt) {
@@ -21,16 +23,16 @@ export default class Popup {
     
 
     setEventListeners() {
-        this._popup.addEventListener('mousedown', this._handleOverlayClose.bind(this));
+        this._popup.addEventListener('mousedown', this._bindedHandleOverlayClose);
     }
 
     open() {
         this._popup.classList.add("popup_opened");
-        document.addEventListener('keydown', this._handleEscClose.bind(this));      // Добавляю листенер нажатия Esc
+        document.addEventListener('keydown', this._bindedHandleEscClose);      // Добавляю листенер нажатия Esc
     }
 
     close() {
-        document.removeEventListener('keydown', this._handleEscClose);     // Снимаю листенер нажатия Esc
+        document.removeEventListener('keydown', this._bindedHandleEscClose);     // Снимаю листенер нажатия Esc
         this._popup.classList.remove("popup_opened");
     }
 
