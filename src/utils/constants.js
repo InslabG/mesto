@@ -1,42 +1,18 @@
-const _initialCards = [
-    {
-      name: 'Архыз',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-      name: 'Челябинская область',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-      name: 'Иваново',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-      name: 'Камчатка',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-      name: 'Холмогорский район',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-      name: 'Байкал',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-  ];
-  
-
 
 const _validationConfig = {
     formClassName: '.popup__content-form',                       // Класс форм попапов
     inputClassName: '.popup__input',                             // Класс инпутов на формах попапов
     inputInvalidClassName: 'popup__input_invalid',               // Класс невалидных инпутов 
     submitButtonClassName: '.popup__save-btn',                   // Класс кнопки submit на формах попапов
-    submitButtonInactiveClassName: 'popup__save-btn_inactive'    // Класс неактивной кнопки submit на формах попапов
+    submitButtonInactiveClassName: 'popup__save-btn_inactive',   // Класс неактивной кнопки submit на формах попапов
  };
 
  export default {
     validationConfig: _validationConfig,
-    initialCards: _initialCards,
-    MOUSE_LEFT_BTN_CODE: 0
+    MOUSE_LEFT_BTN_CODE: 0,
+    baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-25',
+    defaultHeaders: {
+      authorization: '4a6cc8eb-8381-4b5c-bbd7-4cf431d30844',
+      'Content-Type': 'application/json'
+    }
  };
