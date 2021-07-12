@@ -10,6 +10,7 @@ const _validationConfig = {
  export default {
     validationConfig: _validationConfig,
     MOUSE_LEFT_BTN_CODE: 0,
+    ESCAPE_KEY: 'Escape',
     baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-25',
     defaultHeaders: {
       authorization: '4a6cc8eb-8381-4b5c-bbd7-4cf431d30844',

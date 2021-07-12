@@ -35,6 +35,7 @@ export default class Card {
     /// Функция удаления карточки
     removeCard() {
         this._cardElement.remove();
+        this._cardElement = null;
     }
 
     /// Функция обработки клика кнопки like

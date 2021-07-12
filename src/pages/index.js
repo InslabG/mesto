@@ -68,9 +68,9 @@ const cardLikeHandler = (card) => {
 const avatarPopup = new PopupWithForm("#avatar-edit-popup", (data) => {
   avatarPopup.setSubmitBtnText('Сохранение...');
   api.updateAvatar(data)
-    .then(user => {userInfo.setUserInfo(user);  })
+    .then(user => {userInfo.setUserInfo(user); avatarPopup.close(); })
     .catch(apiErrorHandler)
-    .finally( () => { avatarPopup.close(); avatarPopup.setSubmitBtnText('Сохранить');});
+    .finally( () => { avatarPopup.setSubmitBtnText('Сохранить');});
 });
 avatarPopup.setEventListeners();
 
@@ -79,9 +79,9 @@ avatarPopup.setEventListeners();
 const profilePopup = new PopupWithForm("#profile-edit-popup", (data) => {
   profilePopup.setSubmitBtnText('Сохранение...');
   api.updateUser({ name: data.name, about: data.about })
-    .then(user => { userInfo.setUserInfo(user); } )
+    .then(user => { userInfo.setUserInfo(user); profilePopup.close(); } )
     .catch(apiErrorHandler)
-    .finally( () => { profilePopup.close(); profilePopup.setSubmitBtnText('Сохранить');});
+    .finally( () => { profilePopup.setSubmitBtnText('Сохранить');});
 });
 profilePopup.setEventListeners();
 
@@ -95,23 +95,21 @@ const addCardPopup = new PopupWithForm("#card-edit-popup", (data)=>{
       addCardPopup.close(); 
       addCardPopup.setSubmitBtnText('Сохранить');})
     .catch(apiErrorHandler)
-    .finally( () => { addCardPopup.close(); addCardPopup.setSubmitBtnText('Сохранить');});
+    .finally( () => { addCardPopup.setSubmitBtnText('Сохранить');});
   });
   addCardPopup.setEventListeners();
 
 ///Попап подтверждения
 const confirmPopup = new PopupWithConfirmation("#card-delete-confirm-popup", (card) => {
   api.deleteCard(card.id)
-    .then(card.removeCard()).catch(apiErrorHandler);;
+    .then(() => { card.removeCard(); confirmPopup.close(); }).catch(apiErrorHandler);;
 });
-
 
 ///Попап ошибки
 const errorPopup = new PopupWithConfirmation("#error-message-popup", (msg) => {
   console.log(msg);
+  errorPopup.close();
 });
-
-
 
 ///Функция создания карточки
 /// cardData: объект данных карточки, возвращаемый api
